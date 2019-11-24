@@ -3,10 +3,18 @@
     height: 100%;
 
     .todo-list-container {
-        margin: 0 600px;
+        margin: 0 30%;
     }
 
-    .crossed-out {
-        text-decoration: line-through;
+    .list-item {
+        width: 95%;
+        .crossed-out {
+            text-decoration: line-through;
+        }
     }
+
+    .button-icon {
+        float: right;
+    }
+
 }

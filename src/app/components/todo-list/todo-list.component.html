@@ -11,7 +11,8 @@
         <mat-card-content>
             <mat-list role="list" *ngIf="(todoList$ | async) as todoList">
                 <mat-list-item *ngFor="let todo of todoList | sort:'state'">
-                    <mat-checkbox [checked]="todo.state" [class.crossed-out]="todo.state" (change)="toggleOption($event, todo)">{{ todo.title }}</mat-checkbox>
+                    <mat-checkbox  class="list-item" [checked]="todo.state" [class.crossed-out]="todo.state" (change)="toggleOption($event, todo)">{{ todo.title }}</mat-checkbox>
+                    <button class="button-icon" mat-icon-button (click)="goToDetail(todo)"><mat-icon>search</mat-icon></button>
                 </mat-list-item>
             </mat-list>
         </mat-card-content>

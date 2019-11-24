@@ -15,19 +15,25 @@ import { TodoListEffects } from './store/effects/todo-list.effects';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { TodoListService } from './services/todo-list.service';
 import { TodoListSortPipe } from './pipes/todo-list-sort.pipe';
+import { TodoDetailComponent } from './components/todo-detail/todo-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
-    TodoListSortPipe
+    TodoListSortPipe,
+    TodoDetailComponent
   ],
   imports: [
     MatListModule,
     MatCardModule,
     MatCheckboxModule,
+    MatButtonModule,
+    MatIconModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

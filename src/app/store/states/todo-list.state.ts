@@ -7,7 +7,10 @@ export default class TodoListState {
 }
 
 export const initializeState = () => {
-  return { todos: [
-    { id: 1, title: 'Work', desc: 'Creating new features', state: false }
-  ], error: {} };
+  return {
+    todos: [
+      { id: 1, title: 'Work', desc: 'Creating new features', state: false }
+    ],
+    error: {}
+  };
 };

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Todo } from 'src/app/types/todo.type';
 import * as fromTodoList from '../../store/actions/todo-list.actions';
 import { HttpErrorResponse } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todo-list',
@@ -16,7 +16,7 @@ export class TodoListComponent implements OnInit {
   todoList$: Observable<Todo[]>;
   error$: Observable<Partial<HttpErrorResponse>>;
 
-  constructor(private store: Store<{store: TodoListState}>) {
+  constructor(private store: Store<{store: TodoListState}>, private router: Router) {
     this.todoList$ = store.pipe(select('store', 'todos'));
     this.error$ = store.pipe(select('store', 'error'));
   }
@@ -32,5 +32,9 @@ export class TodoListComponent implements OnInit {
         { payload: { todo } }
       )
     );
+  }
+
+  goToDetail(todo: Todo) {
+    this.router.navigateByUrl('todo-detail/' + todo.id);
   }
 }

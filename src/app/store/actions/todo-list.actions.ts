@@ -15,3 +15,8 @@ export const loadTodoListsFailure = createAction(
   '[TodoList] Load TodoLists Failure',
   props<{ error: Partial<HttpErrorResponse> }>()
 );
+
+export const changeTodoState = createAction(
+  '[TodoList] Change Todo state',
+  props<{ payload: {todo: Todo} }>()
+);

@@ -25,3 +25,13 @@ describe('loadTodoListsFailure', () => {
     expect(fromTodoList.loadTodoListsFailure({error}).error).toEqual(error);
   });
 });
+
+describe('changeTodoState', () => {
+  it('should return new state', () => {
+    const payload = {
+      todo: { id: 1, title: 'Work', desc: 'Creating new features', state: true }
+    };
+    expect(fromTodoList.changeTodoState({payload}).type).toBe('[TodoList] Change Todo state');
+    expect(fromTodoList.changeTodoState({payload}).payload).toEqual(payload);
+  });
+});

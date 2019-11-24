@@ -5,6 +5,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { StoreModule } from '@ngrx/store';
 import { TodoListReducer } from 'src/app/store/reducers/todo-list.reducer';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { TodoListSortPipe } from 'src/app/pipes/todo-list-sort.pipe';
 
 describe('TodoListComponent', () => {
   let component: TodoListComponent;
@@ -15,9 +17,10 @@ describe('TodoListComponent', () => {
       imports: [
         MatListModule,
         MatCardModule,
+        MatCheckboxModule,
         StoreModule.forRoot({ store: TodoListReducer }),
       ],
-      declarations: [ TodoListComponent ]
+      declarations: [ TodoListComponent, TodoListSortPipe ]
     })
     .compileComponents();
   }));

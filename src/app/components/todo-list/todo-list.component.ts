@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Todo } from 'src/app/types/todo.type';
 import * as fromTodoList from '../../store/actions/todo-list.actions';
 import { HttpErrorResponse } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-todo-list',
@@ -24,4 +25,12 @@ export class TodoListComponent implements OnInit {
     this.store.dispatch(fromTodoList.loadTodoLists());
   }
 
+  toggleOption(event, todo) {
+    todo.state = event.checked;
+    this.store.dispatch(
+      fromTodoList.changeTodoState(
+        { payload: { todo } }
+      )
+    );
+  }
 }

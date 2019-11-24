@@ -32,6 +32,17 @@ describe('TodoList Reducer', () => {
     });
   });
 
+  describe('changeTodoState action', () => {
+    it('should change one state', () => {
+      const payload = {
+        todo: { id: 1, title: 'Work', desc: 'Creating new features', state: true }
+      };
+      const result = TodoListReducer(initialState, fromTodoList.changeTodoState({payload}));
+
+      expect(result.todos[0].state).toBeTruthy();
+    });
+  });
+
   describe('loadTodoLists action failure', () => {
     it('should return the error', () => {
       const error = new HttpErrorResponse({});

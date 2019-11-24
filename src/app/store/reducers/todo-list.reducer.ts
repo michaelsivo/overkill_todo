@@ -11,6 +11,16 @@ const reducer = createReducer(
   on(TodoListActions.loadTodoListsSuccess, (state: TodoListState, { payload }) => {
     return { ...state, todos: payload };
   }),
+  on(TodoListActions.changeTodoState, (state: TodoListState, { payload }) => {
+    const index = state.todos.findIndex((obj => obj.id === payload.todo.id));
+    state.todos.splice(index, 1);
+    return {
+      ...state, todos: [
+        ...state.todos,
+        payload.todo
+      ]
+    };
+  }),
   on(TodoListActions.loadTodoListsFailure, (state: TodoListState, { error }) => {
     console.log(error);
     return { ...state, error };

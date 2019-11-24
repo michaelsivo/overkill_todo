@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "OverkillTodo"
+    }
+  },
+  "defaultProject": "OverkillTodo",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

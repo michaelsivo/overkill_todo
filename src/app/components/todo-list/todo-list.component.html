@@ -1,0 +1,19 @@
+<div class="todo-list-container">
+    <div *ngIf="(error$ | async) as error">
+        <div class="alert alert-danger" role="alert">
+            {{ error.message }}
+        </div>
+    </div>
+    <mat-card>
+        <mat-card-title>
+            Todo List
+        </mat-card-title>
+        <mat-card-content>
+            <mat-selection-list role="list" *ngIf="(todoList$ | async) as todoList">
+                <mat-list-option *ngFor="let todo of todoList" [checkboxPosition]="before" [selected]="todo.state">
+                    {{ todo.title }}
+                </mat-list-option>
+            </mat-selection-list>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -17,4 +17,11 @@
         float: right;
     }
 
+    mat-card-title {
+        display: flex;
+
+        .todo-title {
+            width: 95%;
+        }
+    }
 }

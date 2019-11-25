@@ -3,4 +3,11 @@ export class Todo {
     state: boolean;
     title: string;
     desc: string;
+
+    constructor(title: string, desc: string) {
+        this.id = null;
+        this.title = title;
+        this.desc = desc;
+        this.state = false;
+    }
 }

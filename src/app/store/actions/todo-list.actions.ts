@@ -20,3 +20,8 @@ export const changeTodoState = createAction(
   '[TodoList] Change Todo state',
   props<{ payload: {todo: Todo} }>()
 );
+
+export const addTodo = createAction(
+  '[TodoList] Add todo',
+  props<{ payload: {todo: Todo} }>()
+);

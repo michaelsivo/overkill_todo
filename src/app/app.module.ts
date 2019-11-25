@@ -17,26 +17,39 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { TodoListService } from './services/todo-list.service';
 import { TodoListSortPipe } from './pipes/todo-list-sort.pipe';
 import { TodoDetailComponent } from './components/todo-detail/todo-detail.component';
+import { AddTodoComponent } from './components/add-todo/add-todo.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
     TodoListSortPipe,
-    TodoDetailComponent
+    TodoDetailComponent,
+    AddTodoComponent
   ],
   imports: [
+    BrowserAnimationsModule,
+    FormsModule,
+    MatFormFieldModule,
     MatListModule,
     MatCardModule,
     MatCheckboxModule,
+    MatInputModule,
     MatButtonModule,
+    MatDialogModule,
     MatIconModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     environment.production ?
     [] : HttpClientInMemoryWebApiModule.forRoot(DbService, { delay: 200 }),
     StoreModule.forRoot({ store: TodoListReducer }),
@@ -45,6 +58,9 @@ import { TodoDetailComponent } from './components/todo-detail/todo-detail.compon
   ],
   providers: [
     TodoListService
+  ],
+  entryComponents: [
+    AddTodoComponent
   ],
   bootstrap: [
     AppComponent

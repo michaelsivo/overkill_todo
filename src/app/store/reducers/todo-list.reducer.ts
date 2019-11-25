@@ -21,6 +21,15 @@ const reducer = createReducer(
       ]
     };
   }),
+  on(TodoListActions.addTodo, (state: TodoListState, { payload }) => {
+    return {
+      ...state,
+      todos: [
+        payload.todo,
+        ...state.todos
+      ]
+    };
+  }),
   on(TodoListActions.loadTodoListsFailure, (state: TodoListState, { error }) => {
     console.log(error);
     return { ...state, error };

@@ -6,7 +6,8 @@
     </div>
     <mat-card>
         <mat-card-title>
-            Todo List
+            <div class="todo-title">Todo List</div> 
+            <button mat-icon-button (click)="openDialog()"><mat-icon>add</mat-icon></button>
         </mat-card-title>
         <mat-card-content>
             <mat-list role="list" *ngIf="(todoList$ | async) as todoList">
